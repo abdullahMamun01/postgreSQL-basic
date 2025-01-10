@@ -8,16 +8,24 @@ CREATE TABLE students (
     name VARCHAR(100) NOT NULL,
     age INTEGER NOT NULL,
     address VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    adulthood_status VARCHAR(50) DEFAULT 'adults'
 );
 
 -- add data on table
-
 INSERT INTO students (name ,age,address , created_at)
 VALUES 
-    ('JOHN' ,20 ,'123 Main St, Cityville' ,DEFAULT),
-    ('Jane Smith', 22, '456 Elm St, Townsville', DEFAULT),
-    ('Alice Johnson', 19, '789 Oak St, Villagetown', DEFAULT);
+    ('Bob', 25, '11 Wall St, CityCenter', DEFAULT),
+    ('Carol', 24, '23 Main St, Suburbiaville', DEFAULT),
+    ('David', 22, '456 Elm St, Townsville', DEFAULT),
+    ('Eve', 27, '789 Oak St, Villagetown', DEFAULT),
+    ('Frank', 29, '123 Main St, Cityville', DEFAULT),
+    ('George', 15, '456 Elm St, Townsville', DEFAULT),
+    ('Helen', 17, '789 Oak St, Villagetown', DEFAULT),    
+    ('Irene', 18, '890 Pine St, Villagetown', DEFAULT),
+    ('Jack', 19, '123 Maple St, Townsville', DEFAULT),
+    ('Kathy', 13, '456 Birch St, Cityville', DEFAULT)
+
 
 -- retrieve all data
 SELECT * from students;
@@ -26,5 +34,16 @@ SELECT * from students;
 SELECT *, EXTRACT(YEAR from created_at) as YEAR FROM students;
 
 -- replace created_at to year with year base
-
 SELECT id, name, age, address , EXTRACT(YEAR from created_at) as YEAR FROM students;
+
+-- update row
+UPDATE students
+ SET adulthood_status = 'not adults'
+ WHERE age = 18
+
+-- delete row with condition match
+DELETE from students 
+    WHERE age < 30
+
+-- delete table
+DROP TABLE students;
