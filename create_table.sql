@@ -1,12 +1,21 @@
 
 
-CREATE TABLE posts (
+CREATE TABLE students (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(100) NOT NULL,
-    content TEXT,
+    name VARCHAR(100) NOT NULL,
+    age INTEGER NOT NULL,
+    address VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    -- ON DELET CASCADE for related to foreign key .if user delete then post will delete
-    user_id INTEGER REFERENCES "users"(id) ON DELETE CASCADE 
+    adulthood_status VARCHAR(50) DEFAULT 'adults'
 );
 
 
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    age INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+drop Table users;

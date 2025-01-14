@@ -1,3 +1,4 @@
+-- without default set null foregin key
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
@@ -7,4 +8,14 @@ CREATE TABLE posts (
     user_id INTEGER REFERENCES "users"(id) ON DELETE CASCADE 
 );
 
+DROP TABLE posts CASCADE;
 
+
+-- with default set null for left join
+CREATE TABLE posts (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user_id INTEGER REFERENCES "users"(id) ON DELETE CASCADE DEFAULT NULL
+);

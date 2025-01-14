@@ -12,7 +12,27 @@ VALUES
     ('Post Title 10', 'Content for post 10', 3);
 
 
+
+
+
+-- insert users
+INSERT INTO users (name, email, age)
+VALUES
+    ('Alice Johnson', 'alice.johnson@example.com', 25),
+    ('Bob Smith', 'bob.smith@example.com', 30),
+    ('Charlie Brown', 'charlie.brown@example.com', 22),
+    ('Diana Prince', 'diana.prince@example.com', 28),
+    ('Evan Peters', 'evan.peters@example.com', 35),
+    ('Fiona Gallagher', 'fiona.gallagher@example.com', 27),
+    ('George Clooney', 'george.clooney@example.com', 40),
+    ('Hannah Baker', 'hannah.baker@example.com', 24),
+    ('Ian Somerhalder', 'ian.somerhalder@example.com', 38),
+    ('Jane Austen', 'jane.austen@example.com', 32);
+
+
+
 INSERT INTO students (name ,age,address , created_at)
+
 VALUES 
     ('Bob', 25, '11 Wall St, CityCenter', DEFAULT),
     ('Carol', 24, '23 Main St, Suburbiaville', DEFAULT),
@@ -24,3 +44,13 @@ VALUES
     ('Irene', 18, '890 Pine St, Villagetown', DEFAULT),
     ('Jack', 19, '123 Maple St, Townsville', DEFAULT),
     ('Kathy', 13, '456 Birch St, Cityville', DEFAULT)
+
+
+
+INSERT INTO posts (title, content, user_id)
+VALUES
+    ('Post Title 1', 'Content for post 1', NULL),
+
+
+SELECT * from users
+
